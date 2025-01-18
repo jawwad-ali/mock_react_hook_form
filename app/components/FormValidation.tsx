@@ -12,7 +12,6 @@ const FormValidation = () => {
     const CustomSubmit = (data: any) => {
         console.log(data)
     }
-
     console.log(errors)
     return (
         <div>
@@ -63,6 +62,36 @@ const FormValidation = () => {
                             {errors.email && errors.email.type === 'required' && (
                                 <p className='text-red-600 font-bold pt-1'>Email is Required</p>
                             )}
+                        </div>
+
+
+                        <div>
+                            <label
+                                htmlFor="creditCard"
+                                className="block text-sm font-medium text-gray-700 mb-1"
+                            >
+                                Credit Card
+                            </label>
+                            <input
+                                {...register('creditCard', {
+                                    required: true,
+                                    pattern: {
+                                        value: /^(5[1-5][0-9]{14}|2(?:2[2-9][0-9]{2}|[3-6][0-9]{3}|7[01][0-9]{2}|720)[0-9]{12})$/,
+                                        message: 'Please enter a valid MasterCard number',
+                                    },
+                                })}
+                                type="text"
+                                id="creditCard"
+                                name="creditCard"
+                                className="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"
+                                placeholder="Example: 5105 1051 0510 5100"
+                            />
+                            {errors.creditCard && errors.creditCard.type === 'required' && (
+                                <p className="text-red-600 font-bold pt-1">Credit card is required</p>
+                            )}
+                            {/* {errors.creditCard && errors.creditCard.type === 'pattern' && (
+                                <p className="text-red-600 font-bold pt-1">{errors.creditCard.message}</p>
+                            )} */}
                         </div>
 
                         {/* Submit Button */}

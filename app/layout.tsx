@@ -26,8 +26,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body>
-          <SignedOut>
-            {/* Custom Styled SignInButton */}
+          {/* <SignedOut>
             <div className="flex items-center justify-center h-screen bg-gray-100">
               <SignInButton>
                 <button
@@ -39,7 +38,6 @@ export default function RootLayout({
             </div>
           </SignedOut>
           <SignedIn>
-            {/* Custom Styled UserButton */}
             <div className="flex items-center justify-end p-4 bg-gray-50 shadow">
               <UserButton
                 appearance={{
@@ -50,7 +48,7 @@ export default function RootLayout({
                 }}
               />
             </div>
-          </SignedIn>
+          </SignedIn> */}
           {children}
         </body>
       </html>
